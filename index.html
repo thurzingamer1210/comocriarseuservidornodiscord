@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Como Criar Seu Servidor no Discord - eBook</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" type="image/png">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Animação nos botões */
+    a, button {
+      transition: all 0.3s ease;
+    }
+    a:hover, button:hover {
+      transform: scale(1.05);
+      background-color: #4f46e5;
+    }
+
+    /* Efeito no contador */
+    #contador {
+      transition: transform 0.6s ease, color 0.6s ease;
+    }
+    .contador-animado {
+      transform: scale(1.08);
+      color: #a5b4fc;
+    }
+    .marco {
+      color: #facc15;
+      animation: pulse 1.5s ease infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    /* Scroll Animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Efeito ao clicar no botão de comprar */
+    .btn-clicked {
+      transform: scale(0.98);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white font-sans">
+  <!-- Header -->
+  <header class="bg-gray-800 p-4 flex justify-between items-center shadow-lg border-b border-indigo-500">
+    <h1 class="text-xl font-bold flex items-center">
+      <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" class="w-6 h-6 mr-2" alt="Discord logo">
+      eBook Discord
+    </h1>
+    <nav>
+      <ul class="flex space-x-4">
+        <li><a href="#sobre" class="hover:underline">Sobre</a></li>
+        <li><a href="#conteudo" class="hover:underline">Conteúdo</a></li>
+        <li><a href="#comprar" class="hover:underline">Comprar</a></li>
+        <li><a href="#discord" class="hover:underline">Entrar no Discord</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <!-- Hero -->
+  <section class="text-center py-20 px-4 bg-gradient-to-b from-indigo-900 to-gray-900 fade-in" id="hero">
+    <img src="https://logodownload.org/wp-content/uploads/2017/11/discord-logo-1-1.png" class="mx-auto w-32 mb-6" alt="Logo Discord">
+    <h2 class="text-4xl font-bold mb-4">Crie o Servidor Perfeito no Discord</h2>
+    <p class="text-lg text-gray-300 mb-6">Aprenda tudo o que você precisa para montar, personalizar e gerenciar seu próprio servidor profissional.</p>
+    <a href="https://pay.hotmart.com/E99605981P?bid=1746748384277" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full text-lg inline-block">Adquira Agora</a>
+  </section>
+
+  <!-- Sobre o eBook -->
+  <section id="sobre" class="max-w-4xl mx-auto px-6 py-16 fade-in">
+    <h3 class="text-3xl font-semibold mb-4 text-indigo-400">Sobre o eBook</h3>
+    <p class="text-gray-300 mb-4">Este guia completo vai te ensinar desde o zero como criar e administrar um servidor no Discord. Ideal para gamers, criadores de conteúdo, comunidades e empresas.</p>
+    <p class="text-gray-400">Com linguagem simples e direta, você vai economizar tempo e evitar erros comuns na criação de servidores. O eBook contém imagens, passo a passo detalhado, dicas avançadas e truques que só os administradores experientes usam.</p>
+  </section>
+
+  <!-- Conteúdo -->
+  <section id="conteudo" class="bg-gray-800 py-16 px-6 fade-in">
+    <div class="max-w-4xl mx-auto">
+      <h3 class="text-3xl font-semibold mb-6 text-indigo-400">O que você vai aprender</h3>
+      <ul class="list-disc list-inside text-gray-300 space-y-2">
+        <li>Como criar e configurar seu servidor do zero</li>
+        <li>Organização de canais de texto e voz</li>
+        <li>Criação e gestão de cargos e permissões</li>
+        <li>Adição de bots e automações úteis</li>
+        <li>Segurança e moderação</li>
+        <li>Dicas de personalização e crescimento</li>
+        <li>Templates exclusivos prontos para usar</li>
+        <li>Ferramentas recomendadas para administradores</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Comprar -->
+  <section id="comprar" class="py-20 text-center fade-in">
+    <h3 class="text-3xl font-bold mb-4 text-indigo-400">Garanta já o seu acesso</h3>
+    <p class="text-gray-400 mb-6">Apenas <strong class="text-white">R$ 19,90</strong> – acesso vitalício com atualizações gratuitas!</p>
+    <a href="https://pay.hotmart.com/E99605981P?bid=1746748384277" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full text-lg inline-block" id="comprar-btn">Comprar com Segurança</a>
+  </section>
+
+<!-- Depoimentos -->
+<section class="bg-gray-900 py-16 px-6 fade-in">
+  <div class="max-w-4xl mx-auto text-center">
+    <h3 class="text-3xl font-bold mb-6 text-indigo-400">O que estão dizendo</h3>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+        <p class="text-gray-300 italic">"Nunca imaginei que fosse tão fácil montar meu servidor. O guia é direto ao ponto!"</p>
+        <p class="mt-4 text-indigo-300 font-bold">– João R.</p>
+      </div>
+      <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+        <p class="text-gray-300 italic">"Vale cada centavo. As dicas de bots e segurança salvaram meu projeto!"</p>
+        <p class="mt-4 text-indigo-300 font-bold">– Camila S.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Simulador Interativo de Servidor Discord -->
+<section class="bg-gray-800 py-16 px-6 text-center text-white font-sans">
+  <h3 class="text-3xl font-bold mb-4 text-indigo-400">🎮 Simulador de Servidor Discord</h3>
+  <p class="text-gray-400 mb-6">Experimente como é gerenciar um servidor! Adicione, edite e remova elementos como se estivesse dentro do Discord! 👇</p>
+
+  <div id="simulador" class="max-w-2xl mx-auto bg-gray-900 rounded-lg shadow-lg p-6 text-left">
+    <ul id="servidor" class="space-y-2">
+      <!-- Canais e elementos adicionados aparecem aqui -->
+    </ul>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mt-8">
+      <button onclick="addItem('📄 Canal de Texto')" class="bg-indigo-600 hover:bg-indigo-700 py-2 px-4 rounded">+ Texto</button>
+      <button onclick="addItem('🔊 Canal de Voz')" class="bg-blue-600 hover:bg-blue-700 py-2 px-4 rounded">+ Voz</button>
+      <button onclick="addItem('🤖 Bot')" class="bg-green-600 hover:bg-green-700 py-2 px-4 rounded">+ Bot</button>
+      <button onclick="addItem('🎖️ Cargo')" class="bg-purple-600 hover:bg-purple-700 py-2 px-4 rounded">+ Cargo</button>
+      <button onclick="addItem('📁 Categoria')" class="bg-yellow-500 hover:bg-yellow-600 py-2 px-4 text-black font-semibold rounded">+ Categoria</button>
+      <button onclick="resetar()" class="bg-red-600 hover:bg-red-700 py-2 px-4 rounded">🔄 Resetar</button>
+    </div>
+  </div>
+</section>
+
+<script>
+  const servidor = document.getElementById('servidor');
+
+  function addItem(nomePadrao) {
+    const li = document.createElement('li');
+    li.className = "bg-gray-700 p-3 rounded flex items-center justify-between fade-in-item";
+
+    const span = document.createElement('span');
+    span.innerText = nomePadrao;
+    span.className = "cursor-pointer";
+    span.title = "Clique para editar";
+    span.onclick = () => editarNome(span);
+
+    const btnRemover = document.createElement('button');
+    btnRemover.innerText = '❌';
+    btnRemover.className = "ml-4 text-red-400 hover:text-red-600 font-bold text-xl";
+    btnRemover.onclick = () => li.remove();
+
+    li.appendChild(span);
+    li.appendChild(btnRemover);
+    servidor.appendChild(li);
+  }
+
+  function editarNome(elemento) {
+    const nomeAtual = elemento.innerText;
+    const novoNome = prompt("Digite o novo nome:", nomeAtual);
+    if (novoNome && novoNome.trim() !== '') {
+      elemento.innerText = novoNome.trim();
+    }
+  }
+
+  function resetar() {
+    servidor.innerHTML = '';
+  }
+</script>
+
+<style>
+  .fade-in-item {
+    animation: fadein 0.5s ease forwards;
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  @keyframes fadein {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  span[title]:hover {
+    text-decoration: underline dotted;
+  }
+</style>
+
+<!-- quiz-interativo -->
+<div id="quiz" style="max-width: 420px; margin: 40px auto; font-family: 'Poppins', sans-serif; color: #eee; background: #1e1e2f; padding: 25px; border-radius: 15px; box-shadow: 0 0 20px #8e44ad;">
+
+  <h2 style="color: #b388ff; text-align: center;" id="titulo-quiz">Qual tipo de servidor Discord é ideal para você?</h2>
+  
+  <div id="iniciar-container" style="text-align:center;">
+    <button id="btn-iniciar" style="background: linear-gradient(45deg, #8e44ad, #00c3ff); border:none; padding: 12px 25px; color:#fff; border-radius: 12px; cursor: pointer; font-weight: 600; margin-top: 20px;">Iniciar Quiz</button>
+  </div>
+
+  <div id="pergunta-container" style="display:none;">
+    <p id="pergunta" style="font-size: 18px; margin-bottom: 15px;"></p>
+    <div id="opcoes"></div>
+  </div>
+
+  <button id="proxima-btn" disabled style="background: linear-gradient(45deg, #8e44ad, #00c3ff); border:none; padding: 12px 25px; color:#fff; border-radius: 12px; cursor: pointer; font-weight: 600; margin-top: 20px; display:none;">Próxima</button>
+
+  <div id="resultado" style="display:none; text-align:center; margin-top: 20px; font-size: 18px;"></div>
+</div>
+
+<script>
+const quizData = [
+  {
+    pergunta: "Qual é o principal objetivo do seu servidor?",
+    opcoes: [
+      { texto: "Comunidade de jogos", tipo: "Gamer" },
+      { texto: "Estudo e aprendizado", tipo: "Educacional" },
+      { texto: "Networking profissional", tipo: "Profissional" },
+      { texto: "Fãs e entretenimento", tipo: "Entretenimento" }
+    ]
+  },
+  {
+    pergunta: "Qual o tamanho esperado da sua comunidade?",
+    opcoes: [
+      { texto: "Pequena e íntima", tipo: "Educacional" },
+      { texto: "Grande e ativa", tipo: "Gamer" },
+      { texto: "Média, com foco em qualidade", tipo: "Profissional" },
+      { texto: "Variável, sem muita regra", tipo: "Entretenimento" }
+    ]
+  },
+  {
+    pergunta: "Você pretende usar bots para?",
+    opcoes: [
+      { texto: "Moderação e segurança", tipo: "Profissional" },
+      { texto: "Automação e diversão", tipo: "Gamer" },
+      { texto: "Organizar estudos", tipo: "Educacional" },
+      { texto: "Engajamento da comunidade", tipo: "Entretenimento" }
+    ]
+  }
+];
+
+let perguntaAtual = 0;
+const respostas = []; // array de arrays para respostas múltiplas
+
+const tituloQuiz = document.getElementById('titulo-quiz');
+const iniciarContainer = document.getElementById('iniciar-container');
+const btnIniciar = document.getElementById('btn-iniciar');
+
+const perguntaEl = document.getElementById('pergunta');
+const opcoesEl = document.getElementById('opcoes');
+const proximaBtn = document.getElementById('proxima-btn');
+const perguntaContainer = document.getElementById('pergunta-container');
+const resultadoEl = document.getElementById('resultado');
+
+btnIniciar.onclick = () => {
+  iniciarContainer.style.display = 'none';
+  perguntaContainer.style.display = 'block';
+  proximaBtn.style.display = 'block';
+  carregarPergunta();
+};
+
+function carregarPergunta() {
+  const perguntaObj = quizData[perguntaAtual];
+  perguntaEl.textContent = perguntaObj.pergunta;
+  opcoesEl.innerHTML = '';
+
+  // Para respostas múltiplas, checkbox
+  perguntaObj.opcoes.forEach((opcao, index) => {
+    const label = document.createElement('label');
+    label.style.cssText = `
+      display: flex; 
+      align-items: center; 
+      background: #2e2e4f; 
+      margin: 8px 0; 
+      padding: 12px; 
+      border-radius: 10px; 
+      cursor: pointer; 
+      user-select: none;
+      font-size: 16px;
+      color: #b388ff;
+      transition: background 0.3s;
+    `;
+
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.name = 'opcao';
+    checkbox.value = index;
+    checkbox.style.marginRight = '12px';
+
+    checkbox.onchange = atualizarBotao;
+
+    label.appendChild(checkbox);
+    label.appendChild(document.createTextNode(opcao.texto));
+    opcoesEl.appendChild(label);
+  });
+
+  proximaBtn.disabled = true;
+}
+
+function atualizarBotao() {
+  // Habilita botão se pelo menos uma opção marcada
+  const checkboxes = opcoesEl.querySelectorAll('input[type="checkbox"]');
+  const algumaMarcada = Array.from(checkboxes).some(chk => chk.checked);
+  proximaBtn.disabled = !algumaMarcada;
+}
+
+proximaBtn.onclick = () => {
+  // Salvar respostas atuais
+  const checkboxes = opcoesEl.querySelectorAll('input[type="checkbox"]');
+  const respostasAtuais = [];
+  checkboxes.forEach((chk, i) => {
+    if (chk.checked) respostasAtuais.push(quizData[perguntaAtual].opcoes[i].tipo);
+  });
+
+  respostas[perguntaAtual] = respostasAtuais;
+
+  perguntaAtual++;
+  if (perguntaAtual < quizData.length) {
+    carregarPergunta();
+    proximaBtn.disabled = true;
+  } else {
+    mostrarResultado();
+  }
+};
+
+function mostrarResultado() {
+  // Contar todas as respostas selecionadas (multiplicidade)
+  const contagem = {};
+  respostas.flat().forEach(tipo => {
+    contagem[tipo] = (contagem[tipo] || 0) + 1;
+  });
+
+  // Pega o tipo com mais respostas
+  const tipoMaisFrequente = Object.keys(contagem).reduce((a, b) => contagem[a] > contagem[b] ? a : b);
+
+  const mensagens = {
+    "Gamer": "Você é um mestre dos servidores gamers! Prepare-se para criar uma comunidade animada e cheia de energia.",
+    "Educacional": "Você é um mestre da organização e aprendizado! Seu servidor vai ser um espaço incrível para quem quer crescer.",
+    "Profissional": "Você é um mestre da produtividade e networking! Seu servidor será um ambiente focado e profissional.",
+    "Entretenimento": "Você é um mestre da diversão! Seu servidor será descontraído e cheio de novidades para seus membros."
+  };
+
+  perguntaContainer.style.display = 'none';
+  proximaBtn.style.display = 'none';
+  resultadoEl.style.display = 'block';
+  resultadoEl.textContent = mensagens[tipoMaisFrequente];
+}
+</script>
+
+<!-- Botão-vira-dica-do-mestre -->
+<div class="dica-mestre-card" onclick="virarCarta()">
+  <div class="dica-mestre-frente">
+    🧠 Dica de Mestre<br><br>
+    Clique para ver a dica!
+  </div>
+  <div class="dica-mestre-verso" id="texto-dica">
+    <!-- Texto da dica aparece aqui -->
+  </div>
+</div>
+
+<style>
+.dica-mestre-card {
+  width: 320px;
+  height: 180px;
+  perspective: 1000px;
+  margin: 30px auto;
+  cursor: pointer;
+  position: relative;
+}
+
+.dica-mestre-card div {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  position: absolute;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 0 20px #8e44ad;
+  transition: transform 0.6s;
+}
+
+.dica-mestre-frente {
+  background: #1e1e2e;
+  color: #b388ff;
+  z-index: 2;
+}
+
+.dica-mestre-verso {
+  background: #2e2e3f;
+  color: #00ffcc;
+  transform: rotateY(180deg);
+  z-index: 1;
+}
+
+.dica-mestre-card.virada .dica-mestre-frente {
+  transform: rotateY(180deg);
+  z-index: 1;
+}
+
+.dica-mestre-card.virada .dica-mestre-verso {
+  transform: rotateY(360deg);
+  z-index: 2;
+}
+</style>
+
+<script>
+const dicas = [
+  "🎯 Use emojis nos nomes dos canais! Ex: 🎮│games, 📢│anúncios, 💬│geral.",
+  "🔐 Configure permissões para evitar spam e trolls no seu servidor.",
+  "🤖 Use bots para automatizar tarefas, como boas-vindas e moderação.",
+  "📅 Crie um calendário de eventos para manter sua comunidade ativa.",
+  "🎨 Personalize o visual do servidor com ícones e banners atrativos.",
+  "📢 Tenha um canal exclusivo para anúncios importantes.",
+  "🏆 Organize competições e premiações para engajar os membros.",
+  "🛠️ Teste sempre as configurações com um usuário teste antes de aplicar.",
+];
+
+let dicaAtual = -1;
+let virada = false;
+
+function virarCarta() {
+  const card = document.querySelector('.dica-mestre-card');
+  const verso = document.getElementById('texto-dica');
+
+  if (!virada) {
+    // escolher dica diferente da atual
+    let novaDica;
+    do {
+      novaDica = dicas[Math.floor(Math.random() * dicas.length)];
+    } while (novaDica === dicas[dicaAtual]);
+
+    dicaAtual = dicas.indexOf(novaDica);
+    verso.innerHTML = novaDica;
+    card.classList.add('virada');
+    virada = true;
+  } else {
+    card.classList.remove('virada');
+    virada = false;
+  }
+}
+</script>
+
+ <!-- Entrar no Discord -->
+  <section id="discord" class="py-20 text-center bg-gray-800">
+    <h3 class="text-3xl font-bold mb-4 text-indigo-400">Entre no nosso Servidor do Discord</h3>
+    <p class="text-gray-400 mb-6">Participe da nossa comunidade, tire dúvidas, receba atualizações do eBook e troque experiências com outros leitores!</p>
+    <a href="https://discord.gg/XvS8AEGT" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-full text-lg">💬 Entrar no Discord</a>
+  </section>
+  
+  <!-- Botão flutuante -->
+  <a href="https://discord.gg/XvS8AEGT" class="fixed bottom-6 right-6 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-5 rounded-full shadow-lg z-50">
+    💬 Entrar no Discord
+  </a>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-gray-500 text-center py-6 text-sm border-t border-indigo-600">
+    <p>&copy; 2025 eBook Discord. Todos os direitos reservados.</p>
+    <p><a href="#" class="underline">Política de Privacidade</a> | <a href="#" class="underline">Contato</a></p>
+  </footer>
+
+  <script>
+    let contador = document.getElementById("contador");
+    let valor = 0; // Este valor será atualizado com Firebase ou outro método de contagem real
+    const audio = new Audio("https://cdn.pixabay.com/audio/2022/03/15/audio_b76ba25f1c.mp3"); // som suave livre de direitos
+
+    setInterval(() => {
+      contador.innerText = valor;
+      contador.classList.add("contador-animado");
+
+      // Destaque para marcos importantes
+      if (valor % 1000 === 0) {
+        contador.classList.add("marco");
+        audio.play();
+      } else {
+        contador.classList.remove("marco");
+      }
+
+      setTimeout(() => contador.classList.remove("contador-animado"), 600);
+      valor++;
+    }, 1000);
+
+    // Scroll Animations
+    const fadeInElements = document.querySelectorAll('.fade-in');
+    const checkVisibility = () => {
+      fadeInElements.forEach(element => {
+        const rect = element.getBoundingClientRect();
+        if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+          element.classList.add('visible');
+        }
+      });
+    };
+    window.addEventListener('scroll', checkVisibility);
+    checkVisibility();
+
+    // Efeito ao clicar no botão de comprar
+    const comprarBtn = document.getElementById('comprar-btn');
+    comprarBtn.addEventListener('click', () => {
+      comprarBtn.classList.add('btn-clicked');
+      setTimeout(() => comprarBtn.classList.remove('btn-clicked'), 300);
+    });
+  </script>
+</body>
+</html>
